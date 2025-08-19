@@ -11,6 +11,7 @@ public class AddressBookMain {
 
 		System.out.println("1. Add Contact");
 		System.out.println("2. Edit Contact");
+		System.out.println("3. Delete Contact");
 		int choice = sc.nextInt();
 		sc.nextLine();
 
@@ -21,6 +22,9 @@ public class AddressBookMain {
 		} else if (choice == 2) {
 			System.out.print("Enter First Name to Edit: ");
 			book.editContact(sc.nextLine(), sc);
+		} else if (choice == 3) {
+		    System.out.print("Enter First Name to Delete: ");
+		    book.deleteContact(sc.nextLine());
 		}
 
 		sc.close();

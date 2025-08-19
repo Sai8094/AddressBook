@@ -32,4 +32,14 @@ public class AddressBook {
 		}
 		System.out.println("Contact not found.");
 	}
+	public void deleteContact(String firstName) {
+	    for(ContactPerson contact : contacts)
+	    {
+	    	if(contact.getFirstName().equalsIgnoreCase(firstName)) {
+	    		contacts.remove(contact);
+	    	}else {
+	    		System.out.println("Contact Not Found");
+	    	}
+	    }
+	}
 }
