@@ -16,9 +16,13 @@ public class AddressBookMain {
 		sc.nextLine();
 
 		if (choice == 1) {
-			ContactPerson c = readContact(sc);
-			book.addContact(c);
-			System.out.println("Added:\n" + c);
+			boolean addMore = true;
+			while (addMore) {
+			    ContactPerson c = readContact(sc);
+			    book.addContact(c);
+			    System.out.print("Add another (yes/no): ");
+			    addMore = sc.nextLine().equalsIgnoreCase("yes");
+			}
 		} else if (choice == 2) {
 			System.out.print("Enter First Name to Edit: ");
 			book.editContact(sc.nextLine(), sc);
