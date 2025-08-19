@@ -6,26 +6,44 @@ public class AddressBookMain {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book Management");
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter First Name:");
-		String firstName = scanner.nextLine();
-		System.out.println("Enter Last Name:");
-		String lastName = scanner.nextLine();
-		System.out.println("Enter Address:");
-		String address = scanner.nextLine();
-		System.out.println("Enter City:");
-		String city = scanner.nextLine();
-		System.out.println("Enter State:");
-		String state = scanner.nextLine();
-		System.out.println("Enter Zip Code:");
-		String zipCode = scanner.nextLine();
-		System.out.println("Enter Phone Number:");
-		String phoneNumber = scanner.nextLine();
-		System.out.println("Enter Email:");
-		String email = scanner.nextLine();
-		ContactPerson contactPerson = new ContactPerson(firstName, lastName, address, city, state, zipCode,
-				phoneNumber, email);
-		System.out.println("Contact Created Successfully");
+		Scanner sc = new Scanner(System.in);
+		AddressBook book = new AddressBook();
+
+		System.out.println("1. Add Contact");
+		System.out.println("2. Edit Contact");
+		int choice = sc.nextInt();
+		sc.nextLine();
+
+		if (choice == 1) {
+			ContactPerson c = readContact(sc);
+			book.addContact(c);
+			System.out.println("Added:\n" + c);
+		} else if (choice == 2) {
+			System.out.print("Enter First Name to Edit: ");
+			book.editContact(sc.nextLine(), sc);
+		}
+
+		sc.close();
+	}
+
+	private static ContactPerson readContact(Scanner sc) {
+		System.out.print("Enter First Name: ");
+		String firstName = sc.nextLine();
+		System.out.print("Enter Last Name: ");
+		String lastName = sc.nextLine();
+		System.out.print("Enter Address: ");
+		String address = sc.nextLine();
+		System.out.print("Enter City: ");
+		String city = sc.nextLine();
+		System.out.print("Enter State: ");
+		String state = sc.nextLine();
+		System.out.print("Enter Zip: ");
+		String zip = sc.nextLine();
+		System.out.print("Enter Phone Number: ");
+		String phoneNumber = sc.nextLine();
+		System.out.print("Enter Email: ");
+		String email = sc.nextLine();
+		return new ContactPerson(firstName, lastName, address, city, state, zip, phoneNumber, email);
 	}
 
 }
