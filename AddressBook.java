@@ -61,6 +61,22 @@ public class AddressBook {
 			}
 		}
 	}
+	
+	public void deleteContact(String name)
+	{
+		for(ContactPerson contact : contacts)
+		{
+			if(contact.getFirstName().equalsIgnoreCase(name)) {
+				contacts.remove(contact);
+				System.out.println("Contact Deleted Successfully");
+				return;
+			}
+			else {
+				System.out.println("Contact Not Found");
+			}
+		}
+	}
+
 
 	
 }
